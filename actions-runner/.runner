@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "TRECIAANNEMARAS",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus5.actions.githubusercontent.com/aeL5j4BkPABmJnXU5I9vCOsZt1OawLDqnqUyOl9greqd1ZSog7/",
+  "gitHubUrl": "https://github.com/ur-prgmr-annie/brgy.antonino",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
