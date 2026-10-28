@@ -1,0 +1,10 @@
+
+services:
+  barangay-antonino-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: barangay-antonino-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
