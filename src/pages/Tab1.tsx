@@ -79,7 +79,7 @@ const Tab1: React.FC = () => {
     {
       id: "4", tag: "Social Services", tagColor: "tertiary",
       title: "Mobile Registration: PhilHealth at Senior Citizens ID",
-      date: "Miyerkules, 9:00 AM - 3:00 PM", location: "Barangay Hall Ground Floor",
+      date: "webes, 9:00 AM - 3:00 PM", location: "Barangay Hall Ground Floor",
       summary: "Tuloy-tuloy na pagpaparehistro para sa mga bagong Senior Citizens at PhilHealth Konsulta.",
       content: "Magkakaroon ng help desk sa ating Barangay Hall para sa mga nais mag-apply ng Senior Citizen ID, PWD booklet, at PhilHealth Konsulta Registration. Magdala ng 1 valid government ID at 2x2 picture.",
     },

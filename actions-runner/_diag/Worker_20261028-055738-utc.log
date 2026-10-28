@@ -1,0 +1,4184 @@
+[2026-10-28 05:57:38Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-10-28 05:57:38Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:38Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:38Z INFO HostContext] Well known config file 'Credentials': 'C:\barangay-antonino-app\actions-runner\.credentials'
+[2026-10-28 05:57:38Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:38Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:38Z INFO HostContext] Well known config file 'Runner': 'C:\barangay-antonino-app\actions-runner\.runner'
+[2026-10-28 05:57:38Z INFO Worker] Version: 2.338.0
+[2026-10-28 05:57:38Z INFO Worker] Commit: 197ca027b90de199464dee3bb9ff198a1db60967
+[2026-10-28 05:57:38Z INFO Worker] Culture: en-PH
+[2026-10-28 05:57:38Z INFO Worker] UI Culture: en-US
+[2026-10-28 05:57:38Z INFO Worker] Waiting to receive the job message from the channel.
+[2026-10-28 05:57:38Z INFO ProcessChannel] Receiving message of length 25367, with hash '85b85cb7413b8d02e76804cdf20c560715c7664042406fc8f9b2dcbe5d7dc882'
+[2026-10-28 05:57:38Z INFO Worker] Message received.
+[2026-10-28 05:57:39Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/ci-cd.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 15,
+        "lit": "Checkout latest code"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "6a43b2e2-7561-437e-8c17-bec2cadd6470",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 20,
+        "col": 15,
+        "lit": "Build Ionic image"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 14,
+              "lit": "docker build -t ionic-crud:latest ."
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "9918610a-c698-4ad3-8ed2-5b71f8c421df",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 23,
+        "col": 15,
+        "lit": "Remove previous container"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 14,
+              "lit": "docker rm -f ionic-crud"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "continueOnError": {
+        "type": 5,
+        "file": 1,
+        "line": 25,
+        "col": 28,
+        "bool": true
+      },
+      "id": "15a4e195-629e-4e92-99de-fbcef0f2e1c8",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 27,
+        "col": 15,
+        "lit": "Start updated container"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 14,
+              "lit": "docker run -d --name ionic-crud --restart unless-stopped -p 8100:80 ionic-crud:latest"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1f73ef18-a8e8-43d0-bdd3-3084eda05b4c",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 30,
+        "col": 15,
+        "lit": "Verify app"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 32,
+              "col": 14,
+              "lit": "$success = $false\nfor ($i = 1; $i -le 15; $i++) {\n  try {\n    Invoke-WebRequest http://localhost:8100/ -UseBasicParsing -TimeoutSec 2 | Out-Null\n    $success = $true\n    break\n  } catch {\n    Start-Sleep -Seconds 2\n  }\n}\n\nif (-not $success) {\n  docker logs ionic-crud\n  exit 1\n}\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 16,
+              "lit": "powershell"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "984ffeb5-eb13-4590-b02a-5bbb91633c73",
+      "name": "__run_4"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions.runner.requirenode24": {
+      "value": "true"
+    },
+    "actions.runner.usenode24bydefault": {
+      "value": "true"
+    },
+    "actions.runner.warnonnode20": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_batch_action_resolution": {
+      "value": "false"
+    },
+    "actions_cache_mode": {
+      "value": "write"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_runner_allow_artifacts_file": {
+      "value": "true"
+    },
+    "actions_runner_compare_workflow_parser": {
+      "value": "false"
+    },
+    "actions_runner_deprecate_linux_arm32": {
+      "value": "true"
+    },
+    "actions_runner_emit_composite_markers": {
+      "value": "true"
+    },
+    "actions_runner_kill_linux_arm32": {
+      "value": "true"
+    },
+    "actions_runner_node20_removal_date": {
+      "value": "September 23rd, 2026"
+    },
+    "actions_runner_node24_default_date": {
+      "value": "June 16th, 2026"
+    },
+    "actions_self_repository": {
+      "value": "true"
+    },
+    "actions_service_container_command": {
+      "value": "true"
+    },
+    "actions_set_orchestration_id_env_for_actions": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_snapshot_preflight_hosted_runner_check": {
+      "value": "false"
+    },
+    "actions_snapshot_preflight_image_gen_pool_check": {
+      "value": "false"
+    },
+    "actions_use_bearer_token_for_codeload": {
+      "value": "false"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "deploy"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "91f66e5c-74f6-8c9e-bb7e-f7611add005a.deploy.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "deploy"
+    },
+    "system.runner.brokerwebsocketprobeurl": {
+      "value": "wss://broker.actions.githubusercontent.com/_ws/ping.sock"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "91f66e5c-74f6-8c9e-bb7e-f7611add005a",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "91f66e5c-74f6-8c9e-bb7e-f7611add005a",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "e75d92d2-b3a1-5cfc-b9a8-985334509995",
+  "jobDisplayName": "deploy",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/aeL5j4BkPABmJnXU5I9vCOsZt1OawLDqnqUyOl9greqd1ZSog7/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus5.actions.githubusercontent.com/aeL5j4BkPABmJnXU5I9vCOsZt1OawLDqnqUyOl9greqd1ZSog7/",
+          "GenerateIdTokenUrl": "",
+          "ConnectivityChecks": "[\"https://broker.actions.githubusercontent.com/health\",\"https://token.actions.githubusercontent.com/ready\",\"https://run.actions.githubusercontent.com/health\"]",
+          "ConnectivityAndDNSChecks": ""
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-3-azure-eastus.actions.githubusercontent.com/78/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "d12ba0f05bd452e9138622a88282f6fefcd4521b"
+        },
+        {
+          "k": "repository",
+          "v": "ur-prgmr-annie/brgy.antonino"
+        },
+        {
+          "k": "repository_owner",
+          "v": "ur-prgmr-annie"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "202394174"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/ur-prgmr-annie/brgy.antonino.git"
+        },
+        {
+          "k": "run_id",
+          "v": "40640975120"
+        },
+        {
+          "k": "run_number",
+          "v": "3"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "202394174"
+        },
+        {
+          "k": "actor",
+          "v": "ur-prgmr-annie"
+        },
+        {
+          "k": "workflow",
+          "v": "Deploy Ionic App Locally"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "d12ba0f05bd452e9138622a88282f6fefcd4521b"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "7d55b47b96d0c4ee3b236863d5bb7e4398c74951"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "gandiatrecianne@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Trecia Anne Gandia"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ur-prgmr-annie"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "gandiatrecianne@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Trecia Anne Gandia"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ur-prgmr-annie"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "3759763129fd1b2633d0045a3e1c18a314991051"
+                        },
+                        {
+                          "k": "message",
+                          "v": "add ci/cd"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-10-28T13:46:13+08:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "ca5463ab8955ff11dc25b04be39e7a1d58919849"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/ur-prgmr-annie/brgy.antonino/commit/3759763129fd1b2633d0045a3e1c18a314991051"
+                        }
+                      ]
+                    },
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "gandiatrecianne@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Trecia Anne Gandia"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ur-prgmr-annie"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "gandiatrecianne@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Trecia Anne Gandia"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ur-prgmr-annie"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "153e8668edfb8e8b1da6f4758ccbd049602aebb3"
+                        },
+                        {
+                          "k": "message",
+                          "v": "all"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-10-28T13:50:32+08:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "7c3119b56d618e65098b2dbd30d348047fd72b4e"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/ur-prgmr-annie/brgy.antonino/commit/153e8668edfb8e8b1da6f4758ccbd049602aebb3"
+                        }
+                      ]
+                    },
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "gandiatrecianne@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Trecia Anne Gandia"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ur-prgmr-annie"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "gandiatrecianne@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Trecia Anne Gandia"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ur-prgmr-annie"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "d12ba0f05bd452e9138622a88282f6fefcd4521b"
+                        },
+                        {
+                          "k": "message",
+                          "v": "na naman"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-10-28T13:56:07+08:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "3ac6c17ceb932072165bae6d4aeeb31227b95dad"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/ur-prgmr-annie/brgy.antonino/commit/d12ba0f05bd452e9138622a88282f6fefcd4521b"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/ur-prgmr-annie/brgy.antonino/compare/7d55b47b96d0...d12ba0f05bd4"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "gandiatrecianne@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Trecia Anne Gandia"
+                          },
+                          {
+                            "k": "username",
+                            "v": "ur-prgmr-annie"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "gandiatrecianne@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Trecia Anne Gandia"
+                          },
+                          {
+                            "k": "username",
+                            "v": "ur-prgmr-annie"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "d12ba0f05bd452e9138622a88282f6fefcd4521b"
+                    },
+                    {
+                      "k": "message",
+                      "v": "na naman"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2026-10-28T13:56:07+08:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "3ac6c17ceb932072165bae6d4aeeb31227b95dad"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/ur-prgmr-annie/brgy.antonino/commit/d12ba0f05bd452e9138622a88282f6fefcd4521b"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "gandiatrecianne@gmail.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "ur-prgmr-annie"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/ur-prgmr-annie/brgy.antonino.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1793163025.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "ur-prgmr-annie/brgy.antonino"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/ur-prgmr-annie/brgy.antonino.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pull_requests",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/ur-prgmr-annie/brgy.antonino"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1436613027.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "TypeScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "brgy.antonino"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOVaD5ow"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/202394174?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "gandiatrecianne@gmail.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/ur-prgmr-annie"
+                          },
+                          {
+                            "k": "id",
+                            "v": 202394174.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "ur-prgmr-annie"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ur-prgmr-annie"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDODBBKPg"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/ur-prgmr-annie"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pull_request_creation_policy",
+                      "v": "all"
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1793167050.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 455.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:ur-prgmr-annie/brgy.antonino.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/ur-prgmr-annie/brgy.antonino"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2026-10-28T05:28:35Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/ur-prgmr-annie/brgy.antonino"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/202394174?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/ur-prgmr-annie"
+                    },
+                    {
+                      "k": "id",
+                      "v": 202394174.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "ur-prgmr-annie"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDODBBKPg"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/ur-prgmr-annie"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "ur-prgmr-annie/brgy.antonino/.github/workflows/ci-cd.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "d12ba0f05bd452e9138622a88282f6fefcd4521b"
+        },
+        {
+          "k": "repository_id",
+          "v": "1436613027"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "ur-prgmr-annie"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 122658781168.0
+        },
+        {
+          "k": "workflow_ref",
+          "v": "ur-prgmr-annie/brgy.antonino/.github/workflows/ci-cd.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "d12ba0f05bd452e9138622a88282f6fefcd4521b"
+        },
+        {
+          "k": "workflow_repository",
+          "v": "ur-prgmr-annie/brgy.antonino"
+        },
+        {
+          "k": "workflow_file_path",
+          "v": ".github/workflows/ci-cd.yml"
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDODBBKPg"
+}
+[2026-10-28 05:57:39Z INFO JobRunner] Job ID e75d92d2-b3a1-5cfc-b9a8-985334509995
+[2026-10-28 05:57:39Z INFO ConfigurationStore] currentAssemblyLocation: C:\barangay-antonino-app\actions-runner\bin\Runner.Worker.dll
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] binPath: C:\barangay-antonino-app\actions-runner\bin
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] RootFolder: C:\barangay-antonino-app\actions-runner
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'Runner': 'C:\barangay-antonino-app\actions-runner\.runner'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] ConfigFilePath: C:\barangay-antonino-app\actions-runner\.runner
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\barangay-antonino-app\actions-runner\.runner_migrated'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] MigratedConfigFilePath: C:\barangay-antonino-app\actions-runner\.runner_migrated
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'Credentials': 'C:\barangay-antonino-app\actions-runner\.credentials'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] CredFilePath: C:\barangay-antonino-app\actions-runner\.credentials
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\barangay-antonino-app\actions-runner\.credentials_migrated'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] MigratedCredFilePath: C:\barangay-antonino-app\actions-runner\.credentials_migrated
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'Service': 'C:\barangay-antonino-app\actions-runner\.service'
+[2026-10-28 05:57:39Z INFO ConfigurationStore] ServiceConfigFilePath: C:\barangay-antonino-app\actions-runner\.service
+[2026-10-28 05:57:39Z INFO ConfigurationStore] Read setting file: 406 chars
+[2026-10-28 05:57:39Z INFO JobRunner] Initializing launch client
+[2026-10-28 05:57:39Z INFO JobServerQueue] Initializing results client
+[2026-10-28 05:57:39Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2026-10-28 05:57:39Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2026-10-28 05:57:39Z INFO JobServerQueue] Start process web console line queue.
+[2026-10-28 05:57:39Z INFO JobServerQueue] Start process file upload queue.
+[2026-10-28 05:57:39Z INFO JobServerQueue] Start results file upload queue.
+[2026-10-28 05:57:39Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-10-28 05:57:39Z INFO JobServerQueue] Start process timeline update queue.
+[2026-10-28 05:57:39Z INFO ExecutionContext] Initializing Job context
+[2026-10-28 05:57:39Z INFO ExecutionContext] Initialize GitHub context
+[2026-10-28 05:57:39Z INFO ExecutionContext] Initialize Env context
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:39Z INFO JobRunner] Starting the job execution context.
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO JobRunner] Validating directory permissions for: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Tools': 'C:\barangay-antonino-app\actions-runner\_work\_tool'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 05:57:39Z INFO JobRunner] Getting job extension.
+[2026-10-28 05:57:39Z INFO JobRunner] Initialize job. Getting all job steps.
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'Credentials': 'C:\barangay-antonino-app\actions-runner\.credentials'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known config file 'SetupInfo': 'C:\barangay-antonino-app\actions-runner\.setup_info'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\barangay-antonino-app\actions-runner\_work\_PipelineMapping\ur-prgmr-annie/brgy.antonino\PipelineFolder.json
+[2026-10-28 05:57:39Z INFO PipelineDirectoryManager] Updating job run properties.
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO JobExtension] Downloading actions
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:39Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:39Z INFO Worker] Listening for cancel message from the channel.
+[2026-10-28 05:57:39Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2026-10-28 05:57:40Z INFO ResultServer] Successfully started websocket client.
+[2026-10-28 05:57:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dc533815-099d-4fd6-94cd-9aea70775a7b', success rate: 1/1.
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:40Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:40Z INFO ActionManager] Save archive 'https://codeload.github.com/actions/checkout/zip/11d5960a326750d5838078e36cf38b85af677262' into C:\barangay-antonino-app\actions-runner\_work\_actions\_temp_2e998312-e1a0-4acc-aaa2-35fd7708483f\af458616-cdc5-4f55-8057-f177fccd2e58.zip.
+[2026-10-28 05:57:40Z INFO ActionManager] Using Basic token for action archive download.
+[2026-10-28 05:57:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dc533815-099d-4fd6-94cd-9aea70775a7b', success rate: 1/1.
+[2026-10-28 05:57:40Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2026-10-28 05:57:41Z INFO ActionManager] Request URL: https://codeload.github.com/actions/checkout/zip/11d5960a326750d5838078e36cf38b85af677262 X-GitHub-Request-Id: E150:2BC4B8:757D8:E3490:6AE18ED4 Http Status: OK
+[2026-10-28 05:57:41Z INFO ActionManager] Finished getting action repository.
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:41Z INFO ActionManifestManagerLegacy] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-10-28 05:57:41Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:41Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 101,
+          "col": 3,
+          "lit": "allow-unsafe-pr-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 109,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-10-28 05:57:42Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:42Z INFO ActionManager] Load action that reference repository from 'C:\barangay-antonino-app\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 101,
+          "col": 3,
+          "lit": "allow-unsafe-pr-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 109,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-10-28 05:57:42Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-10-28 05:57:42Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-10-28 05:57:42Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-10-28 05:57:42Z INFO JobExtension] Adding .
+[2026-10-28 05:57:42Z INFO JobExtension] Adding .
+[2026-10-28 05:57:42Z INFO JobExtension] Adding .
+[2026-10-28 05:57:42Z INFO JobExtension] Adding .
+[2026-10-28 05:57:42Z INFO JobExtension] Adding .
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO JobExtension] Total accessible running process: 341.
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO JobExtension] Start checking server connectivity.
+[2026-10-28 05:57:42Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2026-10-28 05:57:42Z INFO JobExtension] Check server connectivity for https://token.actions.githubusercontent.com/ready.
+[2026-10-28 05:57:42Z INFO JobExtension] Check server connectivity for https://run.actions.githubusercontent.com/health.
+[2026-10-28 05:57:42Z INFO JobExtension] Start checking service connectivity in background.
+[2026-10-28 05:57:42Z INFO JobExtension] Start checking runner websocket connectivity in background.
+[2026-10-28 05:57:42Z INFO BrokerServer] Attempting to start runner websocket client.
+[2026-10-28 05:57:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dc533815-099d-4fd6-94cd-9aea70775a7b', success rate: 1/1.
+[2026-10-28 05:57:42Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "dc533815-099d-4fd6-94cd-9aea70775a7b",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2026-10-28T05:57:39.3513798Z",
+  "finishTime": "2026-10-28T05:57:42.30456Z"
+}.
+[2026-10-28 05:57:42Z INFO JobRunner] Total job steps: 5.
+[2026-10-28 05:57:42Z INFO JobRunner] Run all job steps.
+[2026-10-28 05:57:42Z INFO DapDebugger] DapDebugger initialized
+[2026-10-28 05:57:42Z INFO StepsRunner] Processing step: DisplayName='Checkout latest code'
+[2026-10-28 05:57:42Z INFO StepsRunner] Evaluating: success()
+[2026-10-28 05:57:42Z INFO StepsRunner] Result: true
+[2026-10-28 05:57:42Z INFO StepsRunner] Starting the step.
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO StepsRunner] Which2: 'chcp'
+[2026-10-28 05:57:42Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] Process started with process id 17260, waiting for process exit.
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] Finished process 17260 with exit code 0, and elapsed time 00:00:00.0298290.
+[2026-10-28 05:57:42Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:42Z INFO ActionManager] Load action that reference repository from 'C:\barangay-antonino-app\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 101,
+          "col": 3,
+          "lit": "allow-unsafe-pr-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 109,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-10-28 05:57:42Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-10-28 05:57:42Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-10-28 05:57:42Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-10-28 05:57:42Z INFO ExecutionContext] Reserve record order 7 to 12 for post job actions.
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 05:57:42Z INFO ExecutionContext] Write event payload to C:\barangay-antonino-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 05:57:42Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateArtifactsFileCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ArtifactsListFileCommand, Runner.Worker
+[2026-10-28 05:57:42Z INFO ArtifactsListFileCommand] Wrote $GITHUB_ARTIFACTS_LIST with 0 subject(s) to 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_list_0598c319-b74c-4076-8c2a-85603843894c'
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "ur-prgmr-annie/brgy.antonino"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-10-28 05:57:42Z INFO ActionManifestManagerLegacy] Input 'allow-unsafe-pr-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 109,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 05:57:42Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command error
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command group
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-10-28 05:57:42Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:42Z INFO HostContext] Well known directory 'Externals': 'C:\barangay-antonino-app\actions-runner\externals'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   File name: 'C:\barangay-antonino-app\actions-runner\externals\node24\bin\node.exe'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Arguments: '"C:\barangay-antonino-app\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work\brgy.antonino\brgy.antonino'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 05:57:42Z INFO ProcessInvokerWrapper] Process started with process id 25340, waiting for process exit.
+[2026-10-28 05:57:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:43Z ERR  GitHubActionsService] GET request to wss://broker.actions.githubusercontent.com/_ws/ping.sock failed. HTTP Status: SwitchingProtocols
+[2026-10-28 05:57:43Z INFO BrokerServer] Successfully started runner websocket client.
+[2026-10-28 05:57:43Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 05:57:43Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_dc533815-099d-4fd6-94cd-9aea70775a7b.1
+[2026-10-28 05:57:43Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-10-28 05:57:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:43Z INFO AddMaskCommandExtension] Add new secret mask with length of 524
+[2026-10-28 05:57:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:44Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-10-28 05:57:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:57:52Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:57:52Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:02Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:02Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:02Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:12Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:12Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:12Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:22Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:22Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:22Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:32Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:32Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:32Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:41Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2026-10-28 05:58:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] Finished process 25340 with exit code 0, and elapsed time 00:01:06.2634354.
+[2026-10-28 05:58:48Z INFO CreateStepSummaryCommand] Step Summary file (C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_0598c319-b74c-4076-8c2a-85603843894c) is empty; skipping attachment upload
+[2026-10-28 05:58:48Z INFO CreateArtifactsFileCommand] Processing $GITHUB_ARTIFACTS file 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_0598c319-b74c-4076-8c2a-85603843894c'
+[2026-10-28 05:58:48Z INFO CreateArtifactsFileCommand] $GITHUB_ARTIFACTS file is empty; nothing to process.
+[2026-10-28 05:58:48Z INFO StepsRunner] Step result: 
+[2026-10-28 05:58:48Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node24",
+  "stage": "Main",
+  "stepId": "6a43b2e2-7561-437e-8c17-bec2cadd6470",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 67,
+  "startTime": "2026-10-28T05:57:42.3447047Z",
+  "finishTime": "2026-10-28T05:58:48.8709343Z"
+}.
+[2026-10-28 05:58:48Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-10-28 05:58:48Z INFO StepsRunner] Current state: job state = ''
+[2026-10-28 05:58:48Z INFO StepsRunner] Processing step: DisplayName='Build Ionic image'
+[2026-10-28 05:58:48Z INFO StepsRunner] Evaluating: success()
+[2026-10-28 05:58:48Z INFO StepsRunner] Result: true
+[2026-10-28 05:58:48Z INFO StepsRunner] Starting the step.
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:48Z INFO StepsRunner] Which2: 'chcp'
+[2026-10-28 05:58:48Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] Process started with process id 31324, waiting for process exit.
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] Finished process 31324 with exit code 0, and elapsed time 00:00:00.0206529.
+[2026-10-28 05:58:48Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 05:58:48Z INFO ExecutionContext] Write event payload to C:\barangay-antonino-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 05:58:48Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-10-28 05:58:48Z INFO ArtifactsListFileCommand] Wrote $GITHUB_ARTIFACTS_LIST with 0 subject(s) to 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_list_fcd91bdd-d894-47a7-9358-7016acddf8ad'
+[2026-10-28 05:58:48Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command error
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command group
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-10-28 05:58:48Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-10-28 05:58:48Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-10-28 05:58:48Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-10-28 05:58:48Z INFO ScriptHandler] Defaulting to powershell
+[2026-10-28 05:58:48Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 05:58:48Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:48Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 05:58:48Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-10-28 05:58:48Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-10-28 05:58:48Z INFO ScriptHandler] Defaulting to powershell
+[2026-10-28 05:58:48Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 05:58:48Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\barangay-antonino-app\actions-runner\_work\_temp\5bd0b841-66c1-4507-b1de-08232f4f01f4.ps1'"'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work\brgy.antonino\brgy.antonino'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 05:58:48Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 05:58:49Z INFO ProcessInvokerWrapper] Process started with process id 25992, waiting for process exit.
+[2026-10-28 05:58:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6a43b2e2-7561-437e-8c17-bec2cadd6470', success rate: 1/1.
+[2026-10-28 05:58:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:58:49Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 05:58:49Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_6a43b2e2-7561-437e-8c17-bec2cadd6470.1
+[2026-10-28 05:58:49Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-10-28 05:58:50Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-10-28 05:58:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:58:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:58:52Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:58:52Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:58:52Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:58:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:58:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:58:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:58:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:02Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:59:02Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:59:02Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:59:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:12Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:59:12Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:59:12Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:59:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:22Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:59:22Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:59:22Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:59:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:32Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:59:32Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:59:32Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:59:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:59:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:59:42Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 05:59:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 05:59:52Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 05:59:52Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 05:59:52Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:02Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:02Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:02Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:12Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:12Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:12Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:21Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:22Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:22Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:22Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9918610a-c698-4ad3-8ed2-5b71f8c421df', success rate: 1/1.
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] Finished process 25992 with exit code 0, and elapsed time 00:01:42.4177913.
+[2026-10-28 06:00:31Z INFO CreateStepSummaryCommand] Step Summary file (C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_fcd91bdd-d894-47a7-9358-7016acddf8ad) is empty; skipping attachment upload
+[2026-10-28 06:00:31Z INFO CreateArtifactsFileCommand] Processing $GITHUB_ARTIFACTS file 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_fcd91bdd-d894-47a7-9358-7016acddf8ad'
+[2026-10-28 06:00:31Z INFO CreateArtifactsFileCommand] $GITHUB_ARTIFACTS file is empty; nothing to process.
+[2026-10-28 06:00:31Z INFO StepsRunner] Step result: 
+[2026-10-28 06:00:31Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "9918610a-c698-4ad3-8ed2-5b71f8c421df",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 103,
+  "startTime": "2026-10-28T05:58:48.8746532Z",
+  "finishTime": "2026-10-28T06:00:31.4088472Z"
+}.
+[2026-10-28 06:00:31Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-10-28 06:00:31Z INFO StepsRunner] Current state: job state = ''
+[2026-10-28 06:00:31Z INFO StepsRunner] Processing step: DisplayName='Remove previous container'
+[2026-10-28 06:00:31Z INFO StepsRunner] Evaluating: success()
+[2026-10-28 06:00:31Z INFO StepsRunner] Result: true
+[2026-10-28 06:00:31Z INFO StepsRunner] Starting the step.
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:31Z INFO StepsRunner] Which2: 'chcp'
+[2026-10-28 06:00:31Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] Process started with process id 21872, waiting for process exit.
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] Finished process 21872 with exit code 0, and elapsed time 00:00:00.0285745.
+[2026-10-28 06:00:31Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:31Z INFO ExecutionContext] Write event payload to C:\barangay-antonino-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:31Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-10-28 06:00:31Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-10-28 06:00:31Z INFO ArtifactsListFileCommand] Wrote $GITHUB_ARTIFACTS_LIST with 0 subject(s) to 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_list_68dcf918-db02-4a08-9a6e-5dbdbf7db988'
+[2026-10-28 06:00:31Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command error
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command group
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-10-28 06:00:31Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-10-28 06:00:31Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-10-28 06:00:31Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-10-28 06:00:31Z INFO ScriptHandler] Defaulting to powershell
+[2026-10-28 06:00:31Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 06:00:31Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:31Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:31Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-10-28 06:00:31Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-10-28 06:00:31Z INFO ScriptHandler] Defaulting to powershell
+[2026-10-28 06:00:31Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 06:00:31Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\barangay-antonino-app\actions-runner\_work\_temp\62699ae6-9ab5-4158-b9c5-bee91b49d5eb.ps1'"'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work\brgy.antonino\brgy.antonino'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:31Z INFO ProcessInvokerWrapper] Process started with process id 2268, waiting for process exit.
+[2026-10-28 06:00:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record '15a4e195-629e-4e92-99de-fbcef0f2e1c8', success rate: 1/1.
+[2026-10-28 06:00:32Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 06:00:32Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_9918610a-c698-4ad3-8ed2-5b71f8c421df.1
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '15a4e195-629e-4e92-99de-fbcef0f2e1c8', success rate: 1/1.
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] Finished process 2268 with exit code 0, and elapsed time 00:00:01.4257836.
+[2026-10-28 06:00:32Z INFO CreateStepSummaryCommand] Step Summary file (C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_68dcf918-db02-4a08-9a6e-5dbdbf7db988) is empty; skipping attachment upload
+[2026-10-28 06:00:32Z INFO CreateArtifactsFileCommand] Processing $GITHUB_ARTIFACTS file 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_68dcf918-db02-4a08-9a6e-5dbdbf7db988'
+[2026-10-28 06:00:32Z INFO CreateArtifactsFileCommand] $GITHUB_ARTIFACTS file is empty; nothing to process.
+[2026-10-28 06:00:32Z INFO StepsRunner] Step result: 
+[2026-10-28 06:00:32Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "15a4e195-629e-4e92-99de-fbcef0f2e1c8",
+  "stepContextName": "__run_2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2026-10-28T06:00:31.4126386Z",
+  "finishTime": "2026-10-28T06:00:32.9501019Z"
+}.
+[2026-10-28 06:00:32Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-10-28 06:00:32Z INFO StepsRunner] Current state: job state = ''
+[2026-10-28 06:00:32Z INFO StepsRunner] Processing step: DisplayName='Start updated container'
+[2026-10-28 06:00:32Z INFO StepsRunner] Evaluating: success()
+[2026-10-28 06:00:32Z INFO StepsRunner] Result: true
+[2026-10-28 06:00:32Z INFO StepsRunner] Starting the step.
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:32Z INFO StepsRunner] Which2: 'chcp'
+[2026-10-28 06:00:32Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] Process started with process id 36588, waiting for process exit.
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:32Z INFO ProcessInvokerWrapper] Finished process 36588 with exit code 0, and elapsed time 00:00:00.0280774.
+[2026-10-28 06:00:32Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:32Z INFO ExecutionContext] Write event payload to C:\barangay-antonino-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:32Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:32Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-10-28 06:00:33Z INFO ArtifactsListFileCommand] Wrote $GITHUB_ARTIFACTS_LIST with 0 subject(s) to 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_list_387d12ec-c057-412b-bd0f-4a4feafd143e'
+[2026-10-28 06:00:33Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command error
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command group
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-10-28 06:00:33Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-10-28 06:00:33Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-10-28 06:00:33Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-10-28 06:00:33Z INFO ScriptHandler] Defaulting to powershell
+[2026-10-28 06:00:33Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 06:00:33Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:33Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:33Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:33Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:33Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:33Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-10-28 06:00:33Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-10-28 06:00:33Z INFO ScriptHandler] Defaulting to powershell
+[2026-10-28 06:00:33Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 06:00:33Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\barangay-antonino-app\actions-runner\_work\_temp\0076df96-950f-441f-9d3d-7b403741765a.ps1'"'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work\brgy.antonino\brgy.antonino'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:33Z INFO ProcessInvokerWrapper] Process started with process id 33960, waiting for process exit.
+[2026-10-28 06:00:33Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1f73ef18-a8e8-43d0-bdd3-3084eda05b4c', success rate: 1/1.
+[2026-10-28 06:00:33Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-10-28 06:00:34Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-10-28 06:00:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1f73ef18-a8e8-43d0-bdd3-3084eda05b4c', success rate: 1/1.
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] Finished process 33960 with exit code 0, and elapsed time 00:00:01.6754690.
+[2026-10-28 06:00:34Z INFO CreateStepSummaryCommand] Step Summary file (C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_387d12ec-c057-412b-bd0f-4a4feafd143e) is empty; skipping attachment upload
+[2026-10-28 06:00:34Z INFO CreateArtifactsFileCommand] Processing $GITHUB_ARTIFACTS file 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_387d12ec-c057-412b-bd0f-4a4feafd143e'
+[2026-10-28 06:00:34Z INFO CreateArtifactsFileCommand] $GITHUB_ARTIFACTS file is empty; nothing to process.
+[2026-10-28 06:00:34Z INFO StepsRunner] Step result: 
+[2026-10-28 06:00:34Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "1f73ef18-a8e8-43d0-bdd3-3084eda05b4c",
+  "stepContextName": "__run_3",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2026-10-28T06:00:32.9530486Z",
+  "finishTime": "2026-10-28T06:00:34.7347897Z"
+}.
+[2026-10-28 06:00:34Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-10-28 06:00:34Z INFO StepsRunner] Current state: job state = ''
+[2026-10-28 06:00:34Z INFO StepsRunner] Processing step: DisplayName='Verify app'
+[2026-10-28 06:00:34Z INFO StepsRunner] Evaluating: success()
+[2026-10-28 06:00:34Z INFO StepsRunner] Result: true
+[2026-10-28 06:00:34Z INFO StepsRunner] Starting the step.
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:34Z INFO StepsRunner] Which2: 'chcp'
+[2026-10-28 06:00:34Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] Process started with process id 424, waiting for process exit.
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] Finished process 424 with exit code 0, and elapsed time 00:00:00.0232612.
+[2026-10-28 06:00:34Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:34Z INFO ExecutionContext] Write event payload to C:\barangay-antonino-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:34Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-10-28 06:00:34Z INFO ArtifactsListFileCommand] Wrote $GITHUB_ARTIFACTS_LIST with 0 subject(s) to 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_list_68759ffa-a7a5-4cd2-9a30-0fee5cee589f'
+[2026-10-28 06:00:34Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command error
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command group
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-10-28 06:00:34Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-10-28 06:00:34Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 06:00:34Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:34Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:34Z INFO ScriptHandler] Which2: 'powershell'
+[2026-10-28 06:00:34Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\barangay-antonino-app\actions-runner\_work\_temp\53854234-7375-442b-a1b9-8125ffc64c84.ps1'"'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work\brgy.antonino\brgy.antonino'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:34Z INFO ProcessInvokerWrapper] Process started with process id 2636, waiting for process exit.
+[2026-10-28 06:00:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record '984ffeb5-eb13-4590-b02a-5bbb91633c73', success rate: 1/1.
+[2026-10-28 06:00:35Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 06:00:35Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_15a4e195-629e-4e92-99de-fbcef0f2e1c8.1
+[2026-10-28 06:00:35Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper] Finished process 2636 with exit code 0, and elapsed time 00:00:01.1432782.
+[2026-10-28 06:00:35Z INFO CreateStepSummaryCommand] Step Summary file (C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_68759ffa-a7a5-4cd2-9a30-0fee5cee589f) is empty; skipping attachment upload
+[2026-10-28 06:00:35Z INFO CreateArtifactsFileCommand] Processing $GITHUB_ARTIFACTS file 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_68759ffa-a7a5-4cd2-9a30-0fee5cee589f'
+[2026-10-28 06:00:35Z INFO CreateArtifactsFileCommand] $GITHUB_ARTIFACTS file is empty; nothing to process.
+[2026-10-28 06:00:35Z INFO StepsRunner] Step result: 
+[2026-10-28 06:00:35Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "984ffeb5-eb13-4590-b02a-5bbb91633c73",
+  "stepContextName": "__run_4",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2026-10-28T06:00:34.7375704Z",
+  "finishTime": "2026-10-28T06:00:35.9786313Z"
+}.
+[2026-10-28 06:00:35Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-10-28 06:00:35Z INFO StepsRunner] Current state: job state = ''
+[2026-10-28 06:00:35Z INFO StepsRunner] Processing step: DisplayName='Post Checkout latest code'
+[2026-10-28 06:00:35Z INFO StepsRunner] Evaluating: always()
+[2026-10-28 06:00:35Z INFO StepsRunner] Result: true
+[2026-10-28 06:00:35Z INFO StepsRunner] Starting the step.
+[2026-10-28 06:00:35Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:35Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:35Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:35Z INFO StepsRunner] Which2: 'chcp'
+[2026-10-28 06:00:35Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:35Z INFO ProcessInvokerWrapper] Process started with process id 30464, waiting for process exit.
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper] Finished process 30464 with exit code 0, and elapsed time 00:00:00.0185836.
+[2026-10-28 06:00:36Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 06:00:36Z INFO ActionManager] Load action that reference repository from 'C:\barangay-antonino-app\actions-runner\_work\_actions\actions\checkout\v4'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Actions': 'C:\barangay-antonino-app\actions-runner\_work\_actions'
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 101,
+          "col": 3,
+          "lit": "allow-unsafe-pr-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 109,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-10-28 06:00:36Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-10-28 06:00:36Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-10-28 06:00:36Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:36Z INFO ExecutionContext] Write event payload to C:\barangay-antonino-app\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Work': 'C:\barangay-antonino-app\actions-runner\_work'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Temp': 'C:\barangay-antonino-app\actions-runner\_work\_temp'
+[2026-10-28 06:00:36Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-10-28 06:00:36Z INFO ArtifactsListFileCommand] Wrote $GITHUB_ARTIFACTS_LIST with 0 subject(s) to 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_list_b92ff782-79a0-4d7b-87ee-dcc85d6c9c00'
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "ur-prgmr-annie/brgy.antonino"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-10-28 06:00:36Z INFO ActionManifestManagerLegacy] Input 'allow-unsafe-pr-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 109,
+  "col": 14,
+  "lit": "false"
+}
+[2026-10-28 06:00:36Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command error
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command group
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-10-28 06:00:36Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:36Z INFO HostContext] Well known directory 'Externals': 'C:\barangay-antonino-app\actions-runner\externals'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper] Starting process:
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   File name: 'C:\barangay-antonino-app\actions-runner\externals\node24\bin\node.exe'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Arguments: '"C:\barangay-antonino-app\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Working directory: 'C:\barangay-antonino-app\actions-runner\_work\brgy.antonino\brgy.antonino'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-10-28 06:00:36Z INFO ProcessInvokerWrapper] Process started with process id 2552, waiting for process exit.
+[2026-10-28 06:00:36Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 06:00:36Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_1f73ef18-a8e8-43d0-bdd3-3084eda05b4c.1
+[2026-10-28 06:00:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record '108d2550-340d-44f7-8719-57e7dbf2d35f', success rate: 1/1.
+[2026-10-28 06:00:36Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2026-10-28 06:00:36Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-10-28 06:00:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record '108d2550-340d-44f7-8719-57e7dbf2d35f', success rate: 1/1.
+[2026-10-28 06:00:37Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2026-10-28 06:00:38Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 06:00:38Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_984ffeb5-eb13-4590-b02a-5bbb91633c73.1
+[2026-10-28 06:00:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-10-28 06:00:38Z INFO ProcessInvokerWrapper] Finished process 2552 with exit code 0, and elapsed time 00:00:02.1457727.
+[2026-10-28 06:00:38Z INFO CreateStepSummaryCommand] Step Summary file (C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\step_summary_b92ff782-79a0-4d7b-87ee-dcc85d6c9c00) is empty; skipping attachment upload
+[2026-10-28 06:00:38Z INFO CreateArtifactsFileCommand] Processing $GITHUB_ARTIFACTS file 'C:\barangay-antonino-app\actions-runner\_work\_temp\_runner_file_commands\artifacts_b92ff782-79a0-4d7b-87ee-dcc85d6c9c00'
+[2026-10-28 06:00:38Z INFO CreateArtifactsFileCommand] $GITHUB_ARTIFACTS file is empty; nothing to process.
+[2026-10-28 06:00:38Z INFO StepsRunner] Step result: 
+[2026-10-28 06:00:38Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node24",
+  "stage": "Post",
+  "stepId": "108d2550-340d-44f7-8719-57e7dbf2d35f",
+  "result": "succeeded",
+  "errorMessages": [
+    "The process 'C:\\Program Files\\Git\\cmd\\git.exe' failed with exit code 128"
+  ],
+  "executionTimeInSeconds": 3,
+  "startTime": "2026-10-28T06:00:35.9876495Z",
+  "finishTime": "2026-10-28T06:00:38.1961623Z"
+}.
+[2026-10-28 06:00:38Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-10-28 06:00:38Z INFO StepsRunner] Current state: job state = ''
+[2026-10-28 06:00:38Z INFO JobRunner] Finalize job.
+[2026-10-28 06:00:38Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:38Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:38Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 06:00:38Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:38Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:38Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 06:00:38Z INFO JobExtension] Initialize Env context
+[2026-10-28 06:00:38Z INFO JobExtension] Initialize steps context
+[2026-10-28 06:00:38Z INFO JobExtension] Total accessible running process: 341.
+[2026-10-28 06:00:38Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2026-10-28 06:00:38Z INFO JobExtension] Connectivity check result: {
+  "endpointUrl": "https://broker.actions.githubusercontent.com/health",
+  "endpointIPs": null,
+  "startTime": "2026-10-28T05:57:42.2688897Z",
+  "statusCode": "http_OK",
+  "requestId": "ED32:F7E56:1BBA2F2:1C5298A:6AE18ED6",
+  "httpRequestDurationInMs": 761,
+  "dnsResolutionDurationInMs": 0,
+  "dnsError": null
+}
+[2026-10-28 06:00:38Z INFO JobExtension] Connectivity check result: {
+  "endpointUrl": "https://token.actions.githubusercontent.com/ready",
+  "endpointIPs": null,
+  "startTime": "2026-10-28T05:57:42.2715469Z",
+  "statusCode": "http_NoContent",
+  "requestId": "5623:2BEDF7:5737ED3:5DF9B20:6AE18ED6",
+  "httpRequestDurationInMs": 878,
+  "dnsResolutionDurationInMs": 0,
+  "dnsError": null
+}
+[2026-10-28 06:00:38Z INFO JobExtension] Connectivity check result: {
+  "endpointUrl": "https://run.actions.githubusercontent.com/health",
+  "endpointIPs": null,
+  "startTime": "2026-10-28T05:57:42.2722105Z",
+  "statusCode": "http_OK",
+  "requestId": "DF4D:1C3C57:1BB93FF:1C517A1:6AE18ED6",
+  "httpRequestDurationInMs": 747,
+  "dnsResolutionDurationInMs": 0,
+  "dnsError": null
+}
+[2026-10-28 06:00:38Z INFO JobExtension] Runner websocket probe result: {"connected":true,"connectCount":1,"lastCloseReason":"job_completed","totalDurationMs":175970,"errors":[]}
+[2026-10-28 06:00:38Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "5d1b62bb-86be-465d-9d1d-12fed21113b6",
+  "result": "succeeded",
+  "errorMessages": [
+    "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-10-28T06:00:38.2175223Z",
+  "finishTime": "2026-10-28T06:00:38.2635108Z"
+}.
+[2026-10-28 06:00:38Z INFO JobRunner] Job result after all job steps finish: Succeeded
+[2026-10-28 06:00:38Z INFO JobRunner] Completing the job execution context.
+[2026-10-28 06:00:38Z INFO JobRunner] Shutting down the job server queue.
+[2026-10-28 06:00:38Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2026-10-28 06:00:38Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-10-28 06:00:39Z INFO JobServerQueue] All queue process task stopped.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '108d2550-340d-44f7-8719-57e7dbf2d35f', success rate: 1/1.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '5d1b62bb-86be-465d-9d1d-12fed21113b6', success rate: 1/1.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Web console line queue drained.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-10-28 06:00:39Z INFO JobServerQueue] File upload queue drained.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-10-28 06:00:39Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 06:00:39Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_108d2550-340d-44f7-8719-57e7dbf2d35f.1
+[2026-10-28 06:00:40Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-10-28 06:00:40Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_5d1b62bb-86be-465d-9d1d-12fed21113b6.1
+[2026-10-28 06:00:41Z INFO JobServerQueue] Got a job log file to send to results service.
+[2026-10-28 06:00:41Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\barangay-antonino-app\actions-runner\_diag\blocks\91f66e5c-74f6-8c9e-bb7e-f7611add005a_e75d92d2-b3a1-5cfc-b9a8-985334509995.1
+[2026-10-28 06:00:42Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-10-28 06:00:42Z INFO JobServerQueue] Results upload queue drained.
+[2026-10-28 06:00:42Z INFO JobServerQueue] Timeline update queue drained.
+[2026-10-28 06:00:42Z INFO JobServerQueue] Disposing job server ...
+[2026-10-28 06:00:42Z INFO JobServerQueue] Disposing results server ...
+[2026-10-28 06:00:42Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2026-10-28 06:00:42Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\barangay-antonino-app\actions-runner\_work\_temp
+[2026-10-28 06:00:42Z INFO HostContext] Well known directory 'Bin': 'C:\barangay-antonino-app\actions-runner\bin'
+[2026-10-28 06:00:42Z INFO HostContext] Well known directory 'Root': 'C:\barangay-antonino-app\actions-runner'
+[2026-10-28 06:00:42Z INFO HostContext] Well known directory 'Diag': 'C:\barangay-antonino-app\actions-runner\_diag'
+[2026-10-28 06:00:42Z INFO HostContext] Well known config file 'Telemetry': 'C:\barangay-antonino-app\actions-runner\_diag\.telemetry'
+[2026-10-28 06:00:42Z INFO JobRunner] Raising job completed against run service
+[2026-10-28 06:00:43Z INFO Worker] Job completed.
